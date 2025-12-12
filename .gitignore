@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Build outputs
+dist/
+build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Blockchain
+blockchain/cache/
+blockchain/artifacts/
+blockchain/node_modules/
+blockchain/coverage/
+blockchain/typechain/
+blockchain/typechain-types/
+
+# Backend
+backend/node_modules/
+backend/dist/
+backend/logs/
+backend/coverage/
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/coverage/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Hardhat
+cache/
+artifacts/
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
+.npm
+.eslintcache

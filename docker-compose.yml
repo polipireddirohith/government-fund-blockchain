@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: govfund-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: govfund
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - govfund-network
+
+  backend:
+    build: ./backend
+    container_name: govfund-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://admin:password123@mongodb:27017/govfund?authSource=admin
+      - JWT_SECRET=${JWT_SECRET}
+      - BLOCKCHAIN_RPC_URL=${BLOCKCHAIN_RPC_URL}
+      - CONTRACT_ADDRESS=${CONTRACT_ADDRESS}
+      - PRIVATE_KEY=${PRIVATE_KEY}
+    depends_on:
+      - mongodb
+    networks:
+      - govfund-network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build: ./frontend
+    container_name: govfund-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+      - REACT_APP_BLOCKCHAIN_NETWORK=${BLOCKCHAIN_NETWORK}
+    depends_on:
+      - backend
+    networks:
+      - govfund-network
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  ganache:
+    image: trufflesuite/ganache:latest
+    container_name: govfund-ganache
+    ports:
+      - "8545:8545"
+    command: ganache --deterministic --accounts 10 --defaultBalanceEther 1000
+    networks:
+      - govfund-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  govfund-network:
+    driver: bridge
