@@ -267,35 +267,9 @@ npm test
 - [ ] Advanced analytics with ML
 - [ ] Automated compliance checking
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
-## 🙏 Acknowledgments
-
-- Ethereum Foundation
-- OpenZeppelin for secure smart contract libraries
-- The open-source community
-
-## 📞 Support
-
-For support, email your.email@example.com or create an issue in the repository.
-
----
-
-**Note**: This is a college major project demonstrating blockchain technology implementation for government fund management. It showcases skills in full-stack development, blockchain integration, and system design.
+system design.
