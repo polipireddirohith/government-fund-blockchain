@@ -58,6 +58,29 @@ async function main() {
         } catch (error) {
             console.log("Error verifying contract:", error.message);
         }
+    } else {
+        // Update .env files automatically for localhost
+        const fs = require("fs");
+        const path = require("path");
+
+        updateEnvFile(path.join(__dirname, "../../backend/.env"), "CONTRACT_ADDRESS", contractAddress);
+        updateEnvFile(path.join(__dirname, "../../frontend/.env"), "REACT_APP_CONTRACT_ADDRESS", contractAddress);
+
+        function updateEnvFile(filePath, key, value) {
+            if (fs.existsSync(filePath)) {
+                let content = fs.readFileSync(filePath, "utf8");
+                const regex = new RegExp(`^${key}=.*`, "m");
+                if (regex.test(content)) {
+                    content = content.replace(regex, `${key}=${value}`);
+                } else {
+                    content += `\n${key}=${value}`;
+                }
+                fs.writeFileSync(filePath, content);
+                console.log(`Updated ${key} in ${path.relative(process.cwd(), filePath)}`);
+            } else {
+                console.log(`Warning: Could not find ${filePath}`);
+            }
+        }
     }
 }
 
