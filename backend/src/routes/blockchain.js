@@ -6,7 +6,7 @@ const Transaction = require('../models/Transaction');
 const { auth, authorize } = require('../middleware/auth');
 
 // Contract ABI (simplified - import full ABI in production)
-const contractABI = require('../../blockchain/artifacts/contracts/FundAllocation.sol/FundAllocation.json').abi;
+const contractABI = require('../../../blockchain/artifacts/contracts/FundAllocation.sol/FundAllocation.json').abi;
 
 // Get blockchain provider
 const getProvider = () => {
