@@ -143,15 +143,4 @@ node_modules/
 7. ✅ Add license file
 8. ✅ Include contribution guidelines
 
-## For Resume
-
-Add this to your resume:
-
-**Project Link**: https://github.com/YOUR_USERNAME/government-fund-blockchain
-
-**Project Description**:
-"Developed a blockchain-based government fund allocation system using Ethereum smart contracts, featuring multi-signature approvals, role-based access control, and real-time tracking. Implemented with Solidity, Node.js, React, and MongoDB."
-
----
-
-**Congratulations! Your project is now on GitHub!** 🎉
+ 🎉
